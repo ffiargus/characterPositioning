@@ -1,19 +1,24 @@
 function countLetters(str){
-  var noSpaces = str.join("").toLowerCase();
-  for(letter of noSpaces){
-    //console.log("a")
-    if(letters[letter]){
-      letters[letter] ++;
-      //console.log(letters[letter]);
+  var toLower = str.join(" ").toLowerCase();
+  //var noSpaces = str.join("").toLowerCase();
+  var i = 0;
+  for(letter of toLower){
+    //console.log(letter)
+    if(letter === " "){}
+    else if(letters[letter]){
+      letters[letter].push(toLower.indexOf(letter, i));
+      // console.log(letter);
     }
-    else
-      letters[letter] = 1;
+    else{
+      letters[letter] = [];
+      letters[letter].push(toLower.indexOf(letter))
+    }
+    i++;
   }
   return letters;
 }
 
 var letters = {};
-
 var sentence = process.argv.splice(2);
 
 console.log(countLetters(sentence));
